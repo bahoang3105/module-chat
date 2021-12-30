@@ -24,8 +24,16 @@
         </svg>
         <input type='text' id="search-friend" placeholder="Search friend">
       </div>
-      <div class='list-friend-online'>
-        
+      <div class='list-chat'>
+        <div class="chat-field-title border-top-15">
+          <div class='chat-field-title-item border-top-15' id='chat-field-title-online' onclick="changeList('online')">
+            Online
+          </div>
+          <div class='chat-field-title-item border-top-15' id='chat-field-title-history' onclick="changeList('history')">
+            Chat history
+          </div>
+        </div>
+        <div id='list-friend-chat'></div>
       </div>
     </div>
     <div>

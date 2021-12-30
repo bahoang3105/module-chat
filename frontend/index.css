@@ -45,6 +45,7 @@ html {
   font-size: 14px;
   color: rgb(99, 99, 99);
   margin-left: 10px;
+  margin-top: 3px;
 }
 
 .chat-title-header {
@@ -82,10 +83,42 @@ html {
   margin-left: 8px;
 }
 
-.list-friend-online {
-  height: calc(100vh - 130px);
+.list-chat {
   width: 320px;
   margin-left: 15px;
-  overflow: auto;
-  border-top: 1px solid rgb(211, 211, 211);
 }
+
+.list-chat-field {
+  overflow: hidden;
+  max-height: calc(100vh - 180px);
+}
+
+.border-top-15 {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.chat-field-title {
+  background-color: rgb(211, 211, 211);
+  height: 30px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  cursor: pointer;
+}
+
+#chat-field-title-online {
+  background-color: rgb(238, 238, 238);
+}
+
+.chat-field-title-item {
+  text-align: center;
+  padding-top: 5px;
+}
+
+#list-friend-chat {
+  overflow: auto;
+  height: calc(100vh - 160px);
+  background-color: rgb(238, 238, 238);
+}
+
+
