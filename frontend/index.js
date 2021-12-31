@@ -38,21 +38,20 @@ const renderListFriendOnline = async () => {
     // request API get list friend online
     // fake data
     listFriendOnline = [
-      { name: 'Pleiku', avatar: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eso.org%2Fpublic%2Fimages%2F&psig=AOvVaw24ES4b1aThwyZ5BmTgBKrD&ust=1640947340141000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIDFw66ri_UCFQAAAAAdAAAAABAE' },
-      { name: 'Hoang Anh', avatar: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eso.org%2Fpublic%2Fimages%2F&psig=AOvVaw24ES4b1aThwyZ5BmTgBKrD&ust=1640947340141000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIDFw66ri_UCFQAAAAAdAAAAABAE' },
-      { name: 'Gia Lai', avatar: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eso.org%2Fpublic%2Fimages%2F&psig=AOvVaw24ES4b1aThwyZ5BmTgBKrD&ust=1640947340141000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIDFw66ri_UCFQAAAAAdAAAAABAE' },
-      { name: 'Suduku', avatar: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eso.org%2Fpublic%2Fimages%2F&psig=AOvVaw24ES4b1aThwyZ5BmTgBKrD&ust=1640947340141000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIDFw66ri_UCFQAAAAAdAAAAABAE' },
-      { name: 'Bokukiko', avatar: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eso.org%2Fpublic%2Fimages%2F&psig=AOvVaw24ES4b1aThwyZ5BmTgBKrD&ust=1640947340141000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIDFw66ri_UCFQAAAAAdAAAAABAE' },
-      { name: 'Meo Meo', avatar: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eso.org%2Fpublic%2Fimages%2F&psig=AOvVaw24ES4b1aThwyZ5BmTgBKrD&ust=1640947340141000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIDFw66ri_UCFQAAAAAdAAAAABAE' },
-      { name: 'Yen', avatar: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eso.org%2Fpublic%2Fimages%2F&psig=AOvVaw24ES4b1aThwyZ5BmTgBKrD&ust=1640947340141000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIDFw66ri_UCFQAAAAAdAAAAABAE' },
+      { name: 'Pleiku', avatar: 'https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg' },
+      { name: 'Hoang Anh', avatar: 'https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg' },
+      { name: 'Gia Lai', avatar: 'https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg' },
+      { name: 'Suduku', avatar: 'https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg' },
+      { name: 'Bokukiko', avatar: 'https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg' },
+      { name: 'Meo Meo', avatar: 'https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg' },
+      { name: 'Yen', avatar: 'https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg' },
     ];
   }
-  let listFriend = `<div>${listFriendOnline.map(friend => renderFriendOnline(friend.name, friend.avatar))}</div>`;
-  // let listFriend = '<div>';
-  // for(let i = 0; i < listFriendOnline.length; i++) {
-  //   listFriend = listFriend + renderFriendOnline(listFriendOnline[i].name, listFriendOnline[i].avatar);
-  // }
-  // listFriend = listFriend + '</div>';
+  let listFriend = '<div>';
+  for(let i = 0; i < listFriendOnline.length; i++) {
+    listFriend = listFriend + renderFriendOnline(listFriendOnline[i].name, listFriendOnline[i].avatar);
+  }
+  listFriend = listFriend + '</div>';
   document.getElementById('list-friend-chat').innerHTML = listFriend;
 }
 
@@ -60,15 +59,35 @@ const renderListFriendHistory = async () => {
   if(listFriendHistory === undefined) {
     // request API get chat history
     // fake data
-    listFriendHistory = []
+    listFriendHistory = [];
   }
 }
 
-const renderFriendOnline = (name, avatar) => {
-  return `<div>${name}</div>`;
+const renderFriendOnline = (name, avatar)=> {
+  return `
+    <div class='friend-chat-item'>
+      <img class='friend-chat-item-avatar' src="${avatar}">
+      <div>
+        <div class='friend-chat-item-name'>
+          ${name}
+        </div>
+      </div>
+      <div class='dot online'></div>
+    </div>
+  `;
 }
 
 const renderFriendHistory = (name, avatar, latestMessage, isRead) => {
-
+  return `
+    <div class='friend-chat-item'>
+      <img class='friend-chat-item-avatar' src="${avatar}">
+      <div>
+        <div class='friend-chat-item-name'>
+          ${name}
+        </div>
+      </div>
+      <div class='dot online'></div>
+    </div>
+  `;
 }
 

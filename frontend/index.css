@@ -121,4 +121,38 @@ html {
   background-color: rgb(238, 238, 238);
 }
 
+.friend-chat-item {
+  display: grid;
+  grid-template-columns: 90px 190px;
+  height: 80px;
+  cursor: pointer;
+}
 
+.friend-chat-item:hover {
+  background-color: rgb(221, 221, 221);
+}
+
+.friend-chat-item-avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  margin: 10px 0 0 10px;
+}  
+
+.friend-chat-item-name {
+  font-size: 20px;
+  margin-top: 25px;
+  over-flow: hidden;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  position: absolute;
+  margin: 35px 0 0 290px;
+}
+
+.dot.online {
+  background-color: green;
+}
